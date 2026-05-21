@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;   
 
 public class Book{
@@ -49,7 +50,6 @@ public class Book{
             return new Book(name, author);
         return new Book(name, author, (int)Integer.parseInt(copies));
     }
-    
     private static Book[] parseLibrary(){
         Book[] books = new Book[MAX_BOOKS];
         int i = 0;
@@ -66,19 +66,26 @@ public class Book{
             throw new RuntimeException("The file: does not exist");
         }
     }
-    public static boolean partOfLibrary(String name, String author){
+    public static Book partOfLibrary(String name, String author){
         Book[] books = parseLibrary();
         for (var book: books){
             if (book.name.equals(name) && book.author.equals(author))
-                return true;
+                return book;
         }
-        return false;
+        return null;
     }
     public static void addBook(String name, String author, int availableCopies){
-        if (partOfLibrary(name, author)){
-
+        var book = partOfLibrary(name, author);
+        if (book != null)
+            book.availableCopies += availableCopies;
+            // TODO: make updater function
+        else{
+            try(FileWriter writer = new FileWriter(FILE_NAME, true)){
+                writer.write(name + "," + author + "," + availableCopies);
+            }catch(Exception e){
+                throw new RuntimeException("An exception occured: " + e);
+            }
         }
-
     }
 
 
