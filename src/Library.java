@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;   
 public class Library{
 
@@ -43,6 +44,16 @@ public class Library{
         }
     }
 
+    public static void update(Book[] books){
+        try(FileWriter writer = new FileWriter(Library.getFileName())){
+            for (var book: books){
+                writer.write(book.toFileString());
+            }
+            }catch(Exception e){
+                throw new RuntimeException("An exception occured: " + e);
+            }
+    }
 
     
+
 }

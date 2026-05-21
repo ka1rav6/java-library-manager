@@ -1,4 +1,6 @@
+
 import java.io.FileWriter;
+
 public class Book{
     public String name;
     public String author;
@@ -30,22 +32,36 @@ public class Book{
         }
     }
 
-    public static Book partOfLibrary(String name, String author){
+    public static int partOfLibrary(String name, String author){
         Book[] books = Library.parseLibrary();
+        int i = 0;
         for (var book: books){
             if (book.name.equals(name) && book.author.equals(author))
                 return book;
+            i++;
         }
-        return null;
+        return -1;
     }
+    public String toFileString(){
+        return this.name + "," + this.author + "," + this.availableCopies;
+    }
+    @Override
+    public String toString(){
+        return "Book Name: " + this.name + "\n" + "Book Author: " + this.author + "\n" + "Available Copies: " + this. availableCopies + "\n";
+    }
+
     public static void addBook(String name, String author, int availableCopies){
-        var book = partOfLibrary(name, author);
-        if (book != null)
+        var index = partOfLibrary(name, author);
+        if (index != -1){
+            var books = Library.parseLibrary();
+            var book = books[index];
             book.availableCopies += availableCopies;
-            // TODO: make updater function
+            books[index] = book;
+            Library.update(books);
+            }
         else{
             try(FileWriter writer = new FileWriter(Library.getFileName(), true)){
-                writer.write(name + "," + author + "," + availableCopies);
+                writer.write((new Book(name, author, availableCopies)).toFileString());
             }catch(Exception e){
                 throw new RuntimeException("An exception occured: " + e);
             }
