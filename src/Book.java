@@ -5,23 +5,27 @@ public class Book{
     public String name;
     public String author;
     private int availableCopies; // default
-
+    private double price;
     /**
      * Note: the books are stored in books.txt in this format:
-     * bookname, book-author, availablecopies
+     * bookname, book-author, availablecopies, price
+     * why price is needed: price = deposit per book
      */
 
-
-
-    public Book(String name, String author){
+    public Book(String name, String author, double price){
         this.name = name;
         this.author = author;
         this.availableCopies = 1;
+        this.price = price;
     }
-    public Book(String name, String author, int availableCopies){
+    public Book(String name, String author, double price, int availableCopies){
         this.name = name;
         this.author = author;
         this.availableCopies = availableCopies;
+        this.price = price;
+    }
+    public double getPrice(){
+        return this.price;
     }
     public void issueBook(){
         if (this.availableCopies == 0)

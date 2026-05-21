@@ -14,6 +14,7 @@ public class Library{
         int i = 0;
         String name = "";
         String author = "";
+        String price = "";
         String copies = "";
         while (i < line.length() && line.charAt(i) != ',')
             name += line.charAt(i++);
@@ -22,10 +23,13 @@ public class Library{
             author += line.charAt(i++);
         i++;
         while (i < line.length() && line.charAt(i) != ',')
+            price += line.charAt(i++);
+        i++;
+        while (i < line.length() && line.charAt(i) != ',')
             copies += line.charAt(i++);
         if (copies.isBlank())
-            return new Book(name, author);
-        return new Book(name, author, (int)Integer.parseInt(copies));
+            return new Book(name, author, Double.parseDouble(price));
+        return new Book(name, author, Double.parseDouble(price), (int)Integer.parseInt(copies));
     }
     public static Book[] parseLibrary(){
         Book[] books = new Book[MAX_BOOKS];
@@ -49,11 +53,11 @@ public class Library{
             for (var book: books){
                 writer.write(book.toFileString());
             }
-            }catch(Exception e){
+        }catch(Exception e){
                 throw new RuntimeException("An exception occured: " + e);
-            }
+        }
     }
 
-    
+
 
 }
