@@ -37,7 +37,7 @@ public class Book{
         int i = 0;
         for (var book: books){
             if (book.name.equals(name) && book.author.equals(author))
-                return book;
+                return i;
             i++;
         }
         return -1;
