@@ -12,6 +12,7 @@ abstract class BaseUser{
     public abstract void issueBook(Book book);
     public abstract void returnBook(Book book);
     public abstract void changePassword();
+    public abstract String getPassword();
     public abstract void deleteAccount();
     public abstract void searchBook();
     public abstract void viewAvailableBooks();

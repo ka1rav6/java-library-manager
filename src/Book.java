@@ -53,7 +53,6 @@ public class Book{
     public String toString(){
         return "Book Name: " + this.name + "\n" + "Book Author: " + this.author + "\n" + "Available Copies: " + this. availableCopies + "\n";
     }
-
     public static void addBook(String name, String author, int availableCopies){
         var index = partOfLibrary(name, author);
         if (index != -1){

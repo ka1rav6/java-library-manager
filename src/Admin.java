@@ -1,6 +1,6 @@
 public class Admin extends BaseUser{
     @Override
-    public Fine[] fineHistory(){
+    public String getPassword(){
 
     }
     @Override
