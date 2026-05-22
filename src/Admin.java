@@ -1,7 +1,8 @@
 public class Admin extends BaseUser{
+
     @Override
     public String getPassword(){
-
+        return this.password;
     }
     @Override
     public void issueBook(Book book){
@@ -31,8 +32,16 @@ public class Admin extends BaseUser{
     public void getReturnDates(){
 
     }
-
+    @Override
     public void getFineHistory(){
+
+    }
+    @Override
+    public void getEmail(){
+
+    }
+    @Override
+    public void getPhoneNumber(){
 
     }
 }

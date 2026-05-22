@@ -1,22 +1,39 @@
 
 import java.util.ArrayList;
 
-abstract class BaseUser{
+public class BaseUser{
     public String username;
-    private String password;
-    private String phoneNumber;
-    private Email emailId;
+    protected  String password;
+    protected String phoneNumber;
+    protected Email emailId;
     public ArrayList<Issues> issueHistory;
     public double currentDeposit;
-    public ArrayList<Fine> fineHistory;
-    public abstract void issueBook(Book book);
-    public abstract void returnBook(Book book);
-    public abstract void changePassword();
-    public abstract String getPassword();
-    public abstract void deleteAccount();
-    public abstract void searchBook();
-    public abstract void viewAvailableBooks();
-    public abstract void getReturnDates();
-    public abstract void getFineHistory();
-
+    protected ArrayList<Fine> fineHistory;
+    public void issueBook(Book book){
+    }
+    public void returnBook(Book book){
+    }
+    public void changePassword(String newP){
+        this.password = newP;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public void deleteAccount(){
+    }
+    public void searchBook(){
+    }
+    public void viewAvailableBooks(){
+    }
+    public void getReturnDates(){
+    }
+    public ArrayList<Fine> getFineHistory(){
+        return this.fineHistory;
+    }
+    public Email getEmail(){
+        return this.emailId;
+    }
+    public String getPhoneNumber(){
+        return this.phoneNumber;
+    }
 }
