@@ -24,6 +24,12 @@ public class Book{
         this.availableCopies = availableCopies;
         this.price = price;
     }
+    public void decrementAvailableCopies(){
+        this.availableCopies --;
+    }
+    public void incrementAvailableCopies(){
+        this.availableCopies++;
+    }
     public double getPrice(){
         return this.price;
     }

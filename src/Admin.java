@@ -1,3 +1,6 @@
+
+import java.time.LocalDateTime;
+
 public class Admin extends BaseUser{
 
     @Override
@@ -6,14 +9,14 @@ public class Admin extends BaseUser{
     }
     @Override
     public void issueBook(Book book){
-
+        book.decrementAvailableCopies();
+        var now = LocalDateTime.now();
+        Issues issue = new Issues(now, now.plusDays(21), this, book);
+        this.issueHistory.add(issue);
+        Log.log(issue.toString());
     }
     @Override
     public void returnBook(Book book){
-
-    }
-    @Override
-    public void changePassword(){
 
     }
     @Override
@@ -30,18 +33,6 @@ public class Admin extends BaseUser{
     }
     @Override
     public void getReturnDates(){
-
-    }
-    @Override
-    public void getFineHistory(){
-
-    }
-    @Override
-    public void getEmail(){
-
-    }
-    @Override
-    public void getPhoneNumber(){
 
     }
 }
