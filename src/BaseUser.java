@@ -1,11 +1,14 @@
+
+import java.util.ArrayList;
+
 abstract class BaseUser{
     public String username;
     private String password;
     private String phoneNumber;
     private Email emailId;
-    public Issues[] issueHistory;
-    private double currentDeposit;
-    public abstract Fine[] fineHistory();
+    public ArrayList<Issues> issueHistory;
+    public double currentDeposit;
+    public ArrayList<Fine> fineHistory;
     public abstract void issueBook(Book book);
     public abstract void returnBook(Book book);
     public abstract void changePassword();
