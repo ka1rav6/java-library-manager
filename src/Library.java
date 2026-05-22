@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileWriter;
+import java.util.List;
 import java.util.Scanner;   
 public class Library{
 
@@ -10,26 +11,14 @@ public class Library{
         return FILE_NAME; 
     }
 
-    private static Book parseLine(String line){
-        int i = 0;
-        String name = "";
-        String author = "";
-        String price = "";
-        String copies = "";
-        while (i < line.length() && line.charAt(i) != ',')
-            name += line.charAt(i++);
-        i++;
-        while (i < line.length() && line.charAt(i) != ',')
-            author += line.charAt(i++);
-        i++;
-        while (i < line.length() && line.charAt(i) != ',')
-            price += line.charAt(i++);
-        i++;
-        while (i < line.length() && line.charAt(i) != ',')
-            copies += line.charAt(i++);
-        if (copies.isBlank())
-            return new Book(name, author, Double.parseDouble(price));
-        return new Book(name, author, Double.parseDouble(price), (int)Integer.parseInt(copies));
+    private static Book parseLine(String line) {
+        String[] d = line.split(",");
+        if (d.length < 3)
+            throw new RuntimeException("Details are incomplete.");
+        return (d.length > 3) ? 
+                new Book(d[0].strip(), d[1].strip(),Double.parseDouble(d[2].strip()),Integer.parseInt(d[3].strip()))
+                : 
+                new Book(d[0].strip(), d[1].strip(), Double.parseDouble(d[2].strip()));
     }
     public static Book[] parseLibrary(){
         Book[] books = new Book[MAX_BOOKS];
