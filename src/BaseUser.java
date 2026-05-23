@@ -27,7 +27,7 @@ public class BaseUser{
     }
     public void searchBook(){
     }
-    public void viewAvailableBooks(){
+    public void viewIssues(){
     }
     public void getReturnDates(){
     }
@@ -39,5 +39,11 @@ public class BaseUser{
     }
     public String getPhoneNumber(){
         return this.phoneNumber;
+    }
+    public static void saveUserMetaData(String FILE){
+        
+    }
+    public static BaseUser findUser(String username, String password){
+
     }
 }
