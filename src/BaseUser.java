@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 
 public class BaseUser{
+    /**
+     * Base class for both User and Admin classes.
+     */
+
     public String username;
     protected  String password;
     protected String phoneNumber;

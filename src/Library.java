@@ -1,16 +1,13 @@
 import java.io.File;
 import java.io.FileWriter;
-import java.util.List;
 import java.util.Scanner;   
 public class Library{
-
     private static final int MAX_BOOKS = 1000000;
     private static final String FILE_NAME = "books.txt";
 
     public static String getFileName(){
         return FILE_NAME; 
     }
-
     private static Book parseLine(String line) {
         String[] d = line.split(",");
         if (d.length < 3)

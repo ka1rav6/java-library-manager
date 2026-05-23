@@ -14,7 +14,7 @@ public class Log{
         }
     }
     private static String createLog(String message){
-        message = LocalDateTime.now() + ":\n" + message + "\r\n\r\n";
+        message = LocalDateTime.now() + ":\r\n" + message + "\r\n\r\n";
         return message;
     }
 }

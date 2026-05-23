@@ -1,6 +1,8 @@
 
 import java.time.LocalDateTime;
-
+/**
+ * Class to show issuing statements of books
+ */
 public class Issues{
     LocalDateTime dateIssued;
     LocalDateTime returnDate;

@@ -1,6 +1,8 @@
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-
+/**
+ * To simulate Fining the user if they return the book late
+ */
 public class Fine {
     LocalDateTime time;
     Issues issued;

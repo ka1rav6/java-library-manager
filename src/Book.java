@@ -11,18 +11,19 @@ public class Book{
      * bookname, book-author, availablecopies, price
      * why price is needed: price = deposit per book
      */
-
     public Book(String name, String author, double price){
         this.name = name;
         this.author = author;
         this.availableCopies = 1;
         this.price = price;
+        Log.log("Created a new book of the name: " + this.toFileString());
     }
     public Book(String name, String author, double price, int availableCopies){
         this.name = name;
         this.author = author;
         this.availableCopies = availableCopies;
         this.price = price;
+        Log.log("Created a new book of the name: " + this.toFileString());
     }
     public void decrementAvailableCopies(){
         this.availableCopies --;
@@ -52,7 +53,7 @@ public class Book{
         }
         return -1;
     }
-    public String toFileString(){
+    public final String toFileString(){
         return this.name + "," + this.author + "," + this.availableCopies;
     }
     @Override
@@ -60,6 +61,8 @@ public class Book{
         return "Book Name: " + this.name + "\n" + "Book Author: " + this.author + "\n" + "Available Copies: " + this. availableCopies + "\n";
     }
     public static void addBook(String name, String author, int availableCopies){
+        // for now even updating a small part of the book requires rewriting the whole library. 
+        //Planning to change this by introducing indexes to books: trying to simulate "shelves"
         var index = partOfLibrary(name, author);
         if (index != -1){
             var books = Library.parseLibrary();
@@ -67,7 +70,7 @@ public class Book{
             book.availableCopies += availableCopies;
             books[index] = book;
             Library.update(books);
-            }
+        }
         else{
             try(FileWriter writer = new FileWriter(Library.getFileName(), true)){
                 writer.write((new Book(name, author, availableCopies)).toFileString());

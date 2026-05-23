@@ -14,6 +14,7 @@ public class Admin extends BaseUser{
         Issues issue = new Issues(now, now.plusDays(21), this, book);
         this.issueHistory.add(issue);
         Log.log(issue.toString());
+        System.out.println(issue.toString());
     }
     @Override
     public void returnBook(Book book){
