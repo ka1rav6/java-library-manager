@@ -1,14 +1,28 @@
 
+import java.io.Console;
 import java.util.Scanner;
+import support.Start;
 
 public class Main{
     public static void main(String args[]){
+        //system initialisations
+
         Scanner in = new Scanner(System.in);
+        Console console = System.console();
+        if (console == null){
+            System.out.println("No console available");
+            System.exit(1);
+        }
+
+        //intro sentence
         System.out.println("Hello! Welcome to your very own library.\nWould you like to log in/sign up? (y/n)");
+
+
+        
         while (true){
             String ans = in.nextLine();
             if (ans.equalsIgnoreCase("y"))
-                Start.login();
+                Start.login(in, console);
             else if (ans.equalsIgnoreCase("n")){
                 System.out.println("Oh no! Hope you do log in some day");
                 break;    

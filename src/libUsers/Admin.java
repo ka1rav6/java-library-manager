@@ -1,5 +1,11 @@
+package libUsers;
+
 
 import java.time.LocalDateTime;
+import support.Book;
+import support.Issues;
+import utils.Log;
+
 
 public class Admin extends BaseUser{
 
@@ -29,7 +35,7 @@ public class Admin extends BaseUser{
 
     }
     @Override
-    public void viewAvailableBooks(){
+    public void viewIssues(){
 
     }
     @Override

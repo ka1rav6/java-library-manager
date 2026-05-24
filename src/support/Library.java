@@ -1,3 +1,5 @@
+package support;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;   
@@ -37,6 +39,7 @@ public class Library{
     public static void update(Book[] books){
         try(FileWriter writer = new FileWriter(Library.getFileName())){
             for (var book: books){
+                if (book == null) break;
                 writer.write(book.toFileString());
             }
         }catch(Exception e){

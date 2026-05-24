@@ -1,5 +1,10 @@
+package libUsers;
 
 import java.util.ArrayList;
+import support.Book;
+import support.Email;
+import support.Fine;
+import support.Issues;
 
 public class BaseUser{
     /**
@@ -12,7 +17,7 @@ public class BaseUser{
     protected Email emailId;
     public ArrayList<Issues> issueHistory;
     public double currentDeposit;
-    protected ArrayList<Fine> fineHistory;
+    public ArrayList<Fine> fineHistory;
     public void issueBook(Book book){
     }
     public void returnBook(Book book){
@@ -44,6 +49,6 @@ public class BaseUser{
         
     }
     public static BaseUser findUser(String username, String password){
-
+        return null;
     }
 }

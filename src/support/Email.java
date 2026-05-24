@@ -1,3 +1,4 @@
+package support;
 public class Email{
     public String address;
     public Email(String string){

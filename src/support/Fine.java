@@ -1,5 +1,10 @@
+package support;
+
+
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import libUsers.BaseUser;
+import utils.Log;
 /**
  * To simulate Fining the user if they return the book late
  */

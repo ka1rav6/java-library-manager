@@ -1,5 +1,7 @@
+package support;
 
 import java.io.FileWriter;
+import utils.Log;
 
 public class Book{
     public String name;
@@ -47,6 +49,7 @@ public class Book{
         Book[] books = Library.parseLibrary();
         int i = 0;
         for (var book: books){
+            if (book == null) break;
             if (book.name.equals(name) && book.author.equals(author))
                 return i;
             i++;
@@ -58,7 +61,7 @@ public class Book{
     }
     @Override
     public String toString(){
-        return "Book Name: " + this.name + "\n" + "Book Author: " + this.author + "\n" + "Available Copies: " + this. availableCopies + "\n";
+        return "Book Name: " + this.name + "\n" + "Book Author: " + this.author + "\n" + "Available Copies: " + this.availableCopies + "\n";
     }
     public static void addBook(String name, String author, int availableCopies){
         // for now even updating a small part of the book requires rewriting the whole library. 
