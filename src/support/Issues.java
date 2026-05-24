@@ -5,10 +5,10 @@ import libUsers.BaseUser;
  * Class to show issuing statements of books
  */
 public class Issues{
-    LocalDateTime dateIssued;
-    LocalDateTime returnDate;
-    BaseUser issuedBy;
-    Book book;
+    public LocalDateTime dateIssued;
+    public LocalDateTime returnDate;
+    public BaseUser issuedBy;
+    public Book book;
 
     public Issues(LocalDateTime dateIssued, LocalDateTime returnDate, BaseUser issuedBy, Book book){
         this.dateIssued = dateIssued;
