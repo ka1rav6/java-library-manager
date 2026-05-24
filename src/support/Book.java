@@ -76,7 +76,7 @@ public class Book{
         }
         else{
             try(FileWriter writer = new FileWriter(Library.getFileName(), true)){
-                writer.write((new Book(name, author, availableCopies)).toFileString());
+                writer.write(new Book(name, author, 0, availableCopies).toFileString() + "\n");
             }catch(Exception e){
                 throw new RuntimeException("An exception occured: " + e);
             }
