@@ -19,4 +19,8 @@ public class Email{
         
         return true;
         }
+    @Override
+    public String toString(){
+        return this.address;
+    }
 }
