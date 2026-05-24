@@ -11,7 +11,7 @@ import utils.Log;
 public class Fine {
     LocalDateTime time;
     Issues issued;
-    double amount;
+    public double amount;
     boolean isDeducted;
     BaseUser user;
     private void calculateFine(Book book) {
