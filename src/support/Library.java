@@ -40,7 +40,7 @@ public class Library{
         try(FileWriter writer = new FileWriter(Library.getFileName())){
             for (var book: books){
                 if (book == null) break;
-                writer.write(book.toFileString());
+                writer.write(book.toFileString() + "\n");
             }
         }catch(Exception e){
                 throw new RuntimeException("An exception occured: " + e);
